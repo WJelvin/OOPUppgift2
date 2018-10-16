@@ -7,15 +7,17 @@ public class GymGUI {
 
     public static String getInput() {
 
-            String nameId = JOptionPane.showInputDialog("Namn eller personnummer");
-            return nameId.trim().toLowerCase();
+        String nameId = JOptionPane.showInputDialog("Namn eller personnummer");
+        if (nameId == null) {
+            return null;
+        }
+        return nameId.trim().toLowerCase();
     }
 
     public static void processMember(Customer c) throws IOException {
         if (c == null) {
             JOptionPane.showMessageDialog(null, "Tyvärr finns ingen sådan medlem.");
-        }
-        if (c.isCurrentMember()) {
+        } else if (c.isCurrentMember()) {
             IOUtil.writeMemberToFile(c);
             JOptionPane.showMessageDialog(null, "Välkommen " + c.getName());
         } else {

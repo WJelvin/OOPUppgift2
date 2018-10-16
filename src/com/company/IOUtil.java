@@ -14,8 +14,6 @@ public abstract class IOUtil {
 
     public static final Path pathToHasVisited = FileSystems.getDefault().getPath("src/com/company/hasvisited.txt"); //TODO: Migrera till main
 
-
-
     public IOUtil() {
 
     }
