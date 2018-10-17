@@ -7,9 +7,7 @@ public class GymMembers {
     protected ArrayList<Customer> members = new ArrayList<>();
 
     protected void populateMembers(ArrayList<Customer> members) {
-        for (Customer c : members) {
-            this.members.add(c);
-        }
+        this.members = members;
     }
 
     protected Customer getMemberByNameOrId(String nameId) {
