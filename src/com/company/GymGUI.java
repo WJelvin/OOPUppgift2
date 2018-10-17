@@ -3,7 +3,7 @@ package com.company;
 import javax.swing.*;
 import java.io.IOException;
 
-public class GymGUI {
+public abstract class GymGUI {
 
     public static String getInput() {
 

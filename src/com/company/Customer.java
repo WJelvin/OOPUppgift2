@@ -1,12 +1,11 @@
 package com.company;
 
-
 public class Customer {
 
-    protected String IdNumber;
-    protected String name;
-    protected int lastPayment;
-    protected boolean CurrentMember = isCurrentMember();
+    private String IdNumber;
+    private String name;
+    private int lastPayment;
+    private boolean CurrentMember = isCurrentMember();
 
     public Customer(String idNumber, String name, int lastPayment) {
         this.IdNumber = idNumber;
@@ -14,20 +13,8 @@ public class Customer {
         this.lastPayment = lastPayment;
     }
 
-    public int getLastPayment() {
-        return lastPayment;
-    }
-
-    public void setLastPayment(int lastPayment) {
-        this.lastPayment = lastPayment;
-    }
-
-    protected boolean isCurrentMember() {
-        if ((IOUtil.getDate() - lastPayment) <= 10000) {
-            return true;
-        } else {
-            return false;
-        }
+    public boolean isCurrentMember() {
+        return (IOUtil.getDate() - lastPayment) <= 10000;
     }
 
     public String getIdNumber() {
@@ -42,5 +29,4 @@ public class Customer {
     public String toString() {
         return this.name + " " + this.IdNumber + " " + this.lastPayment + ", Is member: " + isCurrentMember();
     }
-
 }

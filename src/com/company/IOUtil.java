@@ -12,12 +12,12 @@ import java.util.Scanner;
 
 public abstract class IOUtil {
 
-    public static final Path pathToHasVisited = FileSystems.getDefault().getPath("src/com/company/hasvisited.txt"); //TODO: Migrera till main
+    final static Path pathToCustomers = FileSystems.getDefault().getPath("src/com/company/customers.txt");
+    final static Path pathToHasVisited = FileSystems.getDefault().getPath("src/com/company/hasvisited.txt");
 
     public IOUtil() {
 
     }
-
 
     public static ArrayList getMembersFromFile(Path path) throws IOException {
         Scanner sc = new Scanner(path);
@@ -26,9 +26,8 @@ public abstract class IOUtil {
             String customerInfo = sc.nextLine();
             String paymentInfo = sc.nextLine();
             String[] customerArray = customerInfo.split(", ");
-            members.add(new Customer(customerArray[0], customerArray[1],Integer.parseInt(paymentInfo.trim().replaceAll("-", ""))));
+            members.add(new Customer(customerArray[0], customerArray[1], Integer.parseInt(paymentInfo.trim().replaceAll("-", ""))));
         }
-
         return members;
     }
 
@@ -36,7 +35,7 @@ public abstract class IOUtil {
         if (!Files.isReadable(pathToHasVisited)) {
             Files.createFile(pathToHasVisited);
         }
-        String visitingMember = member.name + " " + member.IdNumber + " " + IOUtil.getDate() + "\n";
+        String visitingMember = member.getName() + " " + member.getIdNumber() + " " + IOUtil.getDate() + "\n";
         byte[] bytes = visitingMember.getBytes();
         Files.write(pathToHasVisited, bytes, StandardOpenOption.APPEND);
 
