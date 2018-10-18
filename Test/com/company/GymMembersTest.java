@@ -4,16 +4,17 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class GymMembersTest {
 
     @Test
     public void getMemberByNameOrId() {
         GymMembers gym = new GymMembers();
-        Customer c1 = new Customer("0123456789","Bobo bob", 20131511);
-        Customer c2 = new Customer("0000000000","Foo Bar", 20161016);
-        Customer c3 = new Customer("1111111111","William Jelvin", 20171103);
+        Customer c1 = new Customer("0123456789", "Bobo bob", 20131511);
+        Customer c2 = new Customer("0000000000", "Foo Bar", 20161016);
+        Customer c3 = new Customer("1111111111", "William Jelvin", 20171103);
 
         ArrayList<Customer> customers = new ArrayList<>();
         customers.add(c1);
@@ -26,6 +27,7 @@ public class GymMembersTest {
 
         assertEquals(c2, case1);
         assertEquals(c3, case2);
+        assertNotEquals(c1, case1);
 
     }
 }

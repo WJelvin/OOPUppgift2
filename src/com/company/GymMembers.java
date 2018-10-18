@@ -4,13 +4,15 @@ import java.util.ArrayList;
 
 public class GymMembers {
 
-    protected ArrayList<Customer> members = new ArrayList<>();
+    private ArrayList<Customer> members = new ArrayList<>();
 
-    protected void populateMembers(ArrayList<Customer> members) {
-        this.members = members;
+    public void populateMembers(ArrayList<Customer> members) {
+        for (Customer c : members) {
+            this.members.add(c);
+        }
     }
 
-    protected Customer getMemberByNameOrId(String nameId) {
+    public Customer getMemberByNameOrId(String nameId) {
 
         for (Customer c : this.members) {
             if (nameId.toLowerCase().equals(c.getName().toLowerCase()) || nameId.equals(c.getIdNumber()))
@@ -18,5 +20,4 @@ public class GymMembers {
         }
         return null;
     }
-
 }
