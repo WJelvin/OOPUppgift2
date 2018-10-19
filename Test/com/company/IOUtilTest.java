@@ -22,7 +22,7 @@ public class IOUtilTest {
 
     @Test
     public void writeMemberToFile() throws IOException {
-        Customer member = new Customer("0000000000", "Foo bar", 20171212);
+        Customer member = new Customer("0000000000", "Foo bar", 20180712);
         IOUtil.writeMemberToFile(member);
         Scanner sc = new Scanner(IOUtil.pathToHasVisited);
         String memberInfo = sc.nextLine();

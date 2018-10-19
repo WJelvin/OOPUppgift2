@@ -21,13 +21,14 @@ public class CustomerTest {
 
         int daysSincePayment370 = Integer.parseInt(formatter.format(now.minus(370, ChronoUnit.DAYS)));
         int today = Integer.parseInt(formatter.format(now));
-        int daysSincePayment1320 = Integer.parseInt(formatter.format(now.minus(1320, ChronoUnit.DAYS)));
+        int daysSincePayment4320 = Integer.parseInt(formatter.format(now.minus(4320, ChronoUnit.DAYS)));
         int daysSincePayment183 = Integer.parseInt(formatter.format(now.minus(183, ChronoUnit.DAYS)));
 
         Customer c1 = new Customer("0000000000", "Foo Bar", daysSincePayment370);
         Customer c2 = new Customer("0000000000", "Foo Bar", today);
-        Customer c3 = new Customer("0000000000", "Foo Bar", daysSincePayment1320);
+        Customer c3 = new Customer("0000000000", "Foo Bar", daysSincePayment4320);
         Customer c4 = new Customer("0000000000", "Foo Bar", daysSincePayment183);
+
         assertFalse(c1.isCurrentMember());
         assertTrue(c2.isCurrentMember());
         assertFalse(c3.isCurrentMember());

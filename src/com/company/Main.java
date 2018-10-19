@@ -8,8 +8,8 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         GymMembers gym = new GymMembers();
-
         gym.populateMembers(IOUtil.getMembersFromFile(IOUtil.pathToCustomers));
+
         String nameId = "";
         while (nameId != null) {
             nameId = GymGUI.getInput();
